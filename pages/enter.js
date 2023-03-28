@@ -1,4 +1,4 @@
-import { googleAuthProvider } from "@/lib/firebase";
+import {googleAuthProvider} from "@/lib/firebase";
 import { auth } from "../lib/firebase";
 import {UserContext} from "../lib/context";
 import {useContext} from "react";
@@ -12,8 +12,9 @@ export default function EnterPage({ }) {
     return (
         <main>
             { user ? 
-                !username ? <UsernameForm/> : <SignOutButton/>
-                : 
+                // !username ? <UsernameForm/> : <SignOutButton/>
+                <SignOutButton/>
+                :
                 <SignInButton/>
             }
 
@@ -24,8 +25,9 @@ export default function EnterPage({ }) {
 //Sign in with google button
 function SignInButton() {
     const signInWithGoogle = async () => {
-        await auth.signInWithPopup(googleAuthProvider); //triggers pop up in browser
+        await auth.signInWithPopup(googleAuthProvider)
     }
+
     return (
         <button className="btn-google" onClick={signInWithGoogle}>
             <img src = {'/google.png'}/> Sign in with Google
@@ -44,5 +46,4 @@ function SignOutButton() {
 
 function UsernameForm() {
     return null;
-    
 }
