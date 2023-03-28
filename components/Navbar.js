@@ -15,7 +15,7 @@ export default function Navbar() {
         </li>
 
         {/* user is signed-in and has username */}
-        {username && (
+        {user && (
           <>
             <li className="push-left">
               <Link href="/admin">
@@ -31,7 +31,7 @@ export default function Navbar() {
         )}
 
         {/* user is not signed OR has not created username */}
-        {!username && (
+        {!user && (
           <li>
             <Link href="/enter">
               <button className="btn-blue">Log in</button>
