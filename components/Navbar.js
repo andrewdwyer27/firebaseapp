@@ -15,7 +15,7 @@ export default function Navbar() {
         </li>
 
         {/* user is signed-in and has username */}
-        {username && (
+        {user && (
           <>
             <li className="push-left">
               <Link href="/admin">
@@ -24,14 +24,14 @@ export default function Navbar() {
             </li>
             <li>
               <Link href={`/${username}`}>
-                <img src={user?.photoURL} />
+                <img src={user?.photoURL} /> {/*cant do null.photoURL, so the ? says it can be null dont throw error */}
               </Link>
             </li>
           </>
         )}
 
         {/* user is not signed OR has not created username */}
-        {!username && (
+        {!user && (
           <li>
             <Link href="/enter">
               <button className="btn-blue">Log in</button>
