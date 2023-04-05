@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {UserContext} from "../lib/context";
 import {useContext} from "react";
+import Image from "next/image";
 // Top navbar
 export default function Navbar() {
   const {user, username} = useContext(UserContext);
@@ -23,8 +24,13 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
+              <Link href="/enter">
+                <button>Sign Out</button>
+              </Link>
+            </li>
+            <li>
               <Link href={`/${username}`}>
-                <img src={user?.photoURL} /> {/*cant do null.photoURL, so the ? says it can be null dont throw error */}
+                <Image src={user?.photoURL} width={200} height={200}/> {/*cant do null.photoURL, so the ? says it can be null dont throw error */}
               </Link>
             </li>
           </>
